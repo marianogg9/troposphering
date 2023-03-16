@@ -20,7 +20,7 @@ As a suggestion, use a [virtualenv](https://docs.python.org/3/library/venv.html)
 ├── README.md
 ├── instances
 │   ├── instances.py
-│   └── subnets_input
+│   └── instances_input
 └── subnets
     ├── subnets.py
     └── subnets_input
