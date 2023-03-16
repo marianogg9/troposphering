@@ -36,7 +36,6 @@ for s in data['subnets']:                                       # Loop over the 
         Value=Ref(subnet),
         Export=Export(Sub("${AWS::StackName}-" + subnet.title)) # and export values.
     )
-    
     t.add_output(output)
 
 with open('subnets_template.yaml', 'w') as f:                   # Lastly, create the output template file.
