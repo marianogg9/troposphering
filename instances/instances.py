@@ -50,7 +50,9 @@ for i in data['instances']:                                                     
         i['name'],
         ImageId=data['ami_id'],
         InstanceType=data['instance_type'],
-        SubnetId=ImportValue(data['subnets_stack']+'-Subneteuwest1a'),
+        SubnetId=ImportValue(
+            data['subnets_stack'] + '-Subnet' + data['region'] + '1' + i['availability-zone']
+        ),
         SecurityGroupIds=Ref(security_group),
         Tags=[                                                                  # Let's combine "local" specific tags
             {
