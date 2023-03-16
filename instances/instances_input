@@ -1,0 +1,56 @@
+{
+    "security_groups": [
+        {
+            "name":"defaultSG",
+            "description":"This is the default Security Group",
+            "rules": {
+                "ingress":[
+                    {
+                        "from_cidr":"someCidr",
+                        "ports": {
+                            "from": 22,
+                            "to": 25
+                        }
+                    },
+                    {
+                        "from_cidr":"someOtherCidr",
+                        "ports": {
+                            "from": 123,
+                            "to": 123
+                        }
+                    }
+                ],
+                "egress":[
+                    {
+                        "from_cidr":"someOtherCidr",
+                        "ports": {
+                            "from": 80,
+                            "to": 80
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "instances" : [
+        {
+            "name":"firstIntance",
+            "cidr": "some-cidr",
+            "availability-zone": "a"
+        },
+        {
+            "name":"instanceNumberTwo",
+            "cidr": "172.30.124.80/28",
+            "availability-zone": "b"
+        }
+    ],
+    "ami_id": "ami-123",
+    "instance_type": "t2.micro",
+    "vpc_id": "vpc-abcdefgh",
+    "region": "some-region",
+    "common_tags": [
+        {"Key": "Description", "Value": "Playing around with CloudFormation and Troposphere"},
+        {"Key": "CommongTag2", "Value": "Just to add one more"}
+    ],
+    "subnets_stack": "AddingSubnetsWithTroposphere"
+}
