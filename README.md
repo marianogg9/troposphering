@@ -34,5 +34,8 @@ It will create a template (YAML) file called `subnets_template.yaml` where you c
 
 This template then can be used as file input for a CloudFormation stack creation, as so:
 ```bash
-aws cloudformation create-stack --stack-name TestingTroposphere --template-body file://subnets_template.yaml
+aws cloudformation create-stack --stack-name AddingSubnetsWithTroposphere --template-body file://subnets_template.yaml
 ```
+
+# Next steps
+- Automate CFN stack creation.
