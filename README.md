@@ -20,12 +20,10 @@ As a suggestion, use a [virtualenv](https://docs.python.org/3/library/venv.html)
 ├── README.md
 ├── instances
 │   ├── instances.py
-│   ├── instances_input.json
 │   └── subnets_input
 └── subnets
     ├── subnets.py
-    ├── subnets_input
-    └── subnets_input.json
+    └── subnets_input
 ```
 
 # Quick start
