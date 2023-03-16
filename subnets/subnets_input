@@ -1,0 +1,18 @@
+{
+    "subnets" : [
+        {
+            "cidr": "some-cidr",
+            "availability-zone": "a"
+        },
+        {
+            "cidr": "172.30.124.80/28",
+            "availability-zone": "b"
+        }
+    ],
+    "vpcid": "vpc-abcdefgh",
+    "region": "some-region",
+    "common_tags": [
+        {"Key": "Description", "Value": "Playing around with CloudFormation and Troposphere"},
+        {"Key": "CommongTag2", "Value": "Just to add one more"}
+    ]
+}
