@@ -18,21 +18,21 @@ for s in data['subnets']:                                       # Loop over the 
     availabilityZone = s['availability-zone']
     name = 'Subnet'+region+availabilityZone
     subnet = ec2.Subnet(                                        # Define each subnet.
-        name.replace('-',''),
+        availabilityZone.replace('-',''),
         AvailabilityZone=s['availability-zone'],
         CidrBlock=s['cidr'],
         VpcId=data['vpcid'],
         Tags=[                                                  # Let's combine "local" specific tags
             {
                 "Key": "Name", 
-                "Value": 'subnet-'+data['region']+s['availability-zone']
+                "Value": 'subnet-'+s['availability-zone']
             }
         ] + [tag for tag in data['common_tags']]                # with global ones.
     )
     t.add_resource(subnet)
 
     output = Output(                                            # Add outputs
-        name.replace('-',''),
+        availabilityZone.replace('-',''),
         Value=Ref(subnet),
         Export=Export(Sub("${AWS::StackName}-" + subnet.title)) # and export values.
     )
