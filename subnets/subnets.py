@@ -1,6 +1,7 @@
 # This script creates a CloudFormation template (YAML) defining a set of subnets in a given input VPC.
 # It expects a json file as input (subnets_input.json) with initial values.
 # This script was created by me as an example Troposphere implementation.
+# More examples: https://github.com/cloudtools/troposphere/tree/main/examples. 
 
 import json
 

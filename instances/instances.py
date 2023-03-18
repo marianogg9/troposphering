@@ -1,11 +1,12 @@
-# This script creates a CloudFormation template (YAML) defining a set of instances in a given input VPC and dependant on subnets CFN stack.
+# This script creates a CloudFormation template (YAML) defining a (set of) security groups and instances in a given input VPC, dependant on 'subnets' CFN stack.
 # It expects a json file as input (instances_input.json) with initial values.
 # This script was created by me as an example Troposphere implementation.
+# More examples: https://github.com/cloudtools/troposphere/tree/main/examples.
 
 import json
 
-from troposphere.ec2 import SecurityGroup, SecurityGroupRule, Instance, KeyPair
-from troposphere import ImportValue, Template, Ref, Output, GetAtt, Parameter
+from troposphere.ec2 import SecurityGroup, SecurityGroupRule, Instance
+from troposphere import ImportValue, Template, Ref, Output, GetAtt
 
 t = Template()                                                                  # Define output template.
 
@@ -63,7 +64,7 @@ for i in data['instances']:                                                     
     )
     t.add_resource(instance)
     
-    t.add_output(
+    t.add_output(                                                               # Add some output values.
         [
             Output(
                 i['name']+'InstanceID',
