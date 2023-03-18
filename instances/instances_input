@@ -42,6 +42,7 @@
             "availability-zone": "b"
         }
     ],
+    "ec2keypair": "YourExistingKeyPair",
     "ami_id": "ami-123",
     "instance_type": "t2.micro",
     "vpc_id": "vpc-abcdefgh",

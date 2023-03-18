@@ -4,8 +4,8 @@
 
 import json
 
-from troposphere.ec2 import SecurityGroup, SecurityGroupRule, Instance
-from troposphere import ImportValue, Template, Ref, Output, GetAtt
+from troposphere.ec2 import SecurityGroup, SecurityGroupRule, Instance, KeyPair
+from troposphere import ImportValue, Template, Ref, Output, GetAtt, Parameter
 
 t = Template()                                                                  # Define output template.
 
@@ -43,10 +43,9 @@ for sg in data['security_groups']:
     )
     t.add_resource(security_group)
 
-
 ## Instance(s)
-for i in data['instances']:                                                     # Loop over the subnets values definition.
-    instance = Instance(                                                        # Define each subnet.
+for i in data['instances']:                                                     # Loop over the instances values definition.
+    instance = Instance(                                                        # Define each instance.
         i['name'],
         ImageId=data['ami_id'],
         InstanceType=data['instance_type'],
@@ -54,6 +53,7 @@ for i in data['instances']:                                                     
             data['subnets_stack'] + '-' + (data['region']).replace('-','') + i['availability-zone']
         ),
         SecurityGroupIds=[Ref(security_group)],
+        KeyName=data['ec2keypair'],
         Tags=[                                                                  # Let's combine "local" specific tags
             {
                 "Key": "Name",
@@ -76,5 +76,6 @@ for i in data['instances']:                                                     
         ]
     )
 
+## Write out the YAML template
 with open('instances_template.yaml', 'w') as f:                                 # Lastly, create the output template file.
     f.write(t.to_yaml())

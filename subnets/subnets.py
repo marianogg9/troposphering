@@ -13,6 +13,7 @@ t = Template()                                                  # Define output 
 with open('subnets_input.json','r') as s:                       # Read input value file.
     data = json.load(s)
 
+## Subnet(s)
 for s in data['subnets']:                                       # Loop over the subnets values definition.
     region = data['region']
     availabilityZone = s['availability-zone']
@@ -38,5 +39,6 @@ for s in data['subnets']:                                       # Loop over the 
     )
     t.add_output(output)
 
+## Write out the YAML template
 with open('subnets_template.yaml', 'w') as f:                   # Lastly, create the output template file.
     f.write(t.to_yaml())
