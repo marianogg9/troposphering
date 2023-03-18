@@ -23,7 +23,7 @@ for sg in data['security_groups']:
                 IpProtocol='tcp',
                 FromPort=rule['ports']['from'],
                 ToPort=rule['ports']['to'],
-                CidrIp=rule['from_cidr']
+                CidrIp=rule['cidr']
             ) for rule in sg['rules']['ingress']
         ],
         SecurityGroupEgress=[
@@ -31,7 +31,7 @@ for sg in data['security_groups']:
                 IpProtocol='tcp',
                 FromPort=rule['ports']['from'],
                 ToPort=rule['ports']['to'],
-                CidrIp=rule['from_cidr']
+                CidrIp=rule['cidr']
             ) for rule in sg['rules']['egress']
         ],
         Tags=[
