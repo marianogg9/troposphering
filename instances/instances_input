@@ -9,7 +9,7 @@
                         "cidr":"someCidr",
                         "ports": {
                             "from": 22,
-                            "to": 25
+                            "to": 22
                         }
                     },
                     {

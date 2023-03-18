@@ -73,6 +73,10 @@ for i in data['instances']:                                                     
             Output(
                 i['name']+'PrivateIP',
                 Value=GetAtt(i['name'],'PrivateIp')
+            ),
+            Output(
+                i['name']+'PublicIP',
+                Value=GetAtt(i['name'],'PublicIp')
             )
         ]
     )
