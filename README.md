@@ -2,7 +2,7 @@
 
 This repo contains a brief introduction to [Troposphere](https://github.com/cloudtools/troposphere), a Python library to create and manage CloudFormation descriptors (templates).
 
-For more info, please check out the [blog article]() I wrote.
+For more info, please check out the [blog article](https://blog.mariano.cloud/troposphere-make-cloudformation-legible-again) I wrote.
 
 # Requirements
 
