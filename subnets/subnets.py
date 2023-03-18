@@ -23,6 +23,7 @@ for s in data['subnets']:                                       # Loop over the 
         AvailabilityZone=s['availability-zone'],
         CidrBlock=s['cidr'],
         VpcId=data['vpcid'],
+        MapPublicIpOnLaunch=True,
         Tags=[                                                  # Let's combine "local" specific tags
             {
                 "Key": "Name", 
