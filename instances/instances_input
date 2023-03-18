@@ -35,12 +35,10 @@
     "instances" : [
         {
             "name":"firstIntance",
-            "cidr": "some-cidr",
             "availability-zone": "a"
         },
         {
             "name":"instanceNumberTwo",
-            "cidr": "172.30.124.80/28",
             "availability-zone": "b"
         }
     ],
