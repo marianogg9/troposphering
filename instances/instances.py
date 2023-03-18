@@ -53,7 +53,7 @@ for i in data['instances']:                                                     
         SubnetId=ImportValue(
             data['subnets_stack'] + '-' + (data['region']).replace('-','') + i['availability-zone']
         ),
-        SecurityGroupIds=Ref(security_group),
+        SecurityGroupIds=[Ref(security_group)],
         Tags=[                                                                  # Let's combine "local" specific tags
             {
                 "Key": "Name",
